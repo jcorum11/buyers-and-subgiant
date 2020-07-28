@@ -9,7 +9,7 @@ if (process.env.JAWSDB_URL) {
     process.env.DB_USER,
     process.env.DB_PW,
     {
-      host: "https://peaceful-hollows-91747.herokuapp.com",
+      host: "localhost",
       dialect: "mysql",
       port: 3306,
       dialectOptions: {
