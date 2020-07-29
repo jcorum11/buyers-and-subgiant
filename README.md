@@ -19,7 +19,8 @@
   Use http requests to use the api. <br />
   Base URL: https://peaceful-hollows-91747.herokuapp.com/api <br />
   Options: categories, products, tags <br />
-  example: [https://peaceful-hollows-91747.herokuapp.com/api/categories/1](https://peaceful-hollows-91747.herokuapp.com/api/categories/1) (you must query by id for now)
+  example: [https://peaceful-hollows-91747.herokuapp.com/api/categories/1](https://peaceful-hollows-91747.herokuapp.com/api/categories/1) (you must query by id for now) <br />
+  Video instructions: https://drive.google.com/file/d/1r4JCeqnqTWw9DmpKh0KBMucELTVNCNaf/view
 
   ## License
   [MIT License](https://choosealicense.com/licenses/mit/)
