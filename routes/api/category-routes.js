@@ -5,13 +5,10 @@ const { findOne } = require("../../models/Tag");
 // The `/api/categories` endpoint
 
 router.get("/", (req, res) => {
-  // be sure to include its associated Products
   Category.findAll({
-    attributes: ["id", "category_name"],
     include: [
       {
         model: Product,
-        attributes: ["id", "product_name", "price", "stock", "category_id"],
       },
     ],
   })
@@ -90,13 +87,14 @@ router.delete("/:id", (req, res) => {
   // delete a category by its `id` value
   Category.destroy({
     where: {
-      id: res.params.id,
+      id: req.params.id,
     },
   })
     .then((dbCategoryData) => {
       if (!dbCategoryData) {
         res.status(404).json({ message: "No category found with this id" });
       }
+      res.json(dbCategoryData);
     })
     .catch((err) => {
       console.log(err);

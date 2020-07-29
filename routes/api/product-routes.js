@@ -7,16 +7,13 @@ const { Product, Category, Tag, ProductTag } = require("../../models");
 router.get("/", (req, res) => {
   // find all products
   Product.findAll({
-    attributes: ["id", "product_name", "price", "stock", "category_id"],
     // be sure to include its associated Category and Tag data
     include: [
       {
         model: Category,
-        attributes: ["id", "product_name", "price", "stock", "category_id"],
       },
       {
         model: Tag,
-        attributes: ["id", "tag_name"],
       },
     ],
   })
@@ -138,13 +135,14 @@ router.delete("/:id", (req, res) => {
   // delete one product by its `id` value
   Product.destroy({
     where: {
-      id: res.params.id,
+      id: req.params.id,
     },
   })
     .then((dbProductData) => {
       if (!dbProductData) {
         res.status(404).json({ message: "No product found with this id" });
       }
+      res.json(dbProductData);
     })
     .catch((err) => {
       console.log(err);
